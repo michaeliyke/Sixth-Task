@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>ACME Book Directory</title>
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <link rel="stylesheet" href="" />
+  <script src="js/jquery-3.2.1.slim.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/index.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+<body>
+<div class="container">
+<div class="jumbotron mb-3 pb-3">
+  <h1 class="display-4">ACME Book Directory</h1>
+  <p class="lead">Welcome to ACME Book Directory Service. Our directory allows you to browse and post books. You can browse by name, author or ISBN. The platform is free and you have complete control!</p>
+  <hr class="my-4">  
+</div>
+ <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Browse</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">New Record</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Edit</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-todo-tab" data-toggle="pill" href="#pills-todo" role="tab" aria-controls="pills-todo" aria-selected="false">Remove</a>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    
+
+
+
+
+
+
+  <form>
+  <div class="form-group row">
+    <h5 >Browse by one or more criteria below</h5>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Book title</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-field" id="inputEmail3">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Book Author</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control input-field" id="inputEmail3">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Book ID</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-field" id="inputEmail3">
+    </div>
+  </div>
+  
+  
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">ISBN Number</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control input-field" id="inputPassword3">
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">SEND HTTP Request</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            GET command
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck1">
+        <label class="form-check-label" for="gridCheck1">
+          Browse entire Library
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-secondary">Send request</button>
+    </div>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+    
+
+  </div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    
+   
+  <form>
+  <div class="form-group row">
+    <h5>Fill the details below to add a book</h5>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Book title</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-field" id="inputEmail3">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Book Author</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-field" id="inputEmail3">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Book ID</label>
+    <div class="col-sm-10">
+      <input type="text" placeholder="Auto-generated" disabled class="form-control input-field" id="inputEmail3">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">ISBN Number</label>
+    <div class="col-sm-10">
+      <input placeholder="Auto-generated" disabled type="text" class="form-control input-field" id="inputEmail3">
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">SEND HTTP Request</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" checked>
+          <label class="form-check-label" for="gridRadios2">
+            POST command
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group row">
+    <div class="col-sm-2">Checkbox</div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck1">
+        <label class="form-check-label" for="gridCheck1">
+          Example checkbox
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-secondary">Sign in</button>
+    </div>
+  </div>
+</form>
+
+
+
+
+  </div>
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+    
+
+  <form>
+  <div class="form-group row">
+    <h5>Select the ID of a book below to edit it's details</h5>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Select the Book to edit (ID)</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-field" id="inputEmail3">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Book Title</label>
+    <div class="col-sm-10">
+      <input type="text" placeholder="Auto-generated" class="form-control input-field" id="inputPassword3">
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">SEND HTTP Request</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"  checked>
+          <label class="form-check-label" for="gridRadios2">
+            PUT command
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group row">
+    <div class="col-sm-2">Checkbox</div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck1">
+        <label class="form-check-label" for="gridCheck1">
+          Example checkbox
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-secondary">Sign in</button>
+    </div>
+  </div>
+</form>
+
+
+  </div>
+  <div class="tab-pane fade" id="pills-todo" role="tabpanel" aria-labelledby="pills-todo-tab">
+    
+
+  <form>
+  <div class="form-group row">
+    <h5 >If a book isn't what you want it to be, delete it!</h5>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Select book to delete (ID)</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-field" id="inputEmail3">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Book title</label>
+    <div class="col-sm-10">
+      <input type="text" disabled placeholder="will be auto-generated" class="form-control input-field" id="inputPassword3">
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">SEND HTTP Request</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"  checked>
+          <label class="form-check-label" for="gridRadios2">
+            DELETE command
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-danger">Delete book</button>
+    </div>
+  </div>
+</form>
+
+
+  </div>
+</div>
+  </div>
+</body>
+</html>
