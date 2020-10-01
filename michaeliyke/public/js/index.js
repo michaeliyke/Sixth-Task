@@ -3,9 +3,11 @@
        return function($){
         const a = alert;
          $(sapi.forms).change(function(event) {
-            $(this).find("input.input-field").each(function() {
+           if(event.target.classList.contains("form-check-input")) {
+            $(this).find(".input-field").each(function() {
               this.disabled = !this.disabled;
             });
+          }
             
          });
        }

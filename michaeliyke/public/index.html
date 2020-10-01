@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" name="view-port" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>ACME Book Directory</title>
-  <link rel="stylesheet" href="bootstrap.min.css" />
-  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="css/index.css" /> -->
   <script src="js/jquery-3.2.1.slim.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/index.js" type="text/javascript" charset="utf-8" async defer></script>
@@ -19,57 +19,59 @@
 </div>
  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Browse</a>
+    <a class="nav-link active" id="pills-browse-tab" data-toggle="pill" href="#pills-browse" role="tab" aria-controls="pills-browse" aria-selected="true">Browse</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">New Record</a>
+    <a class="nav-link" id="pills-new_record-tab" data-toggle="pill" href="#pills-new_record" role="tab" aria-controls="pills-new_record" aria-selected="false">New Record</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Edit</a>
+    <a class="nav-link" id="pills-edit-tab" data-toggle="pill" href="#pills-edit" role="tab" aria-controls="pills-edit" aria-selected="false">Edit</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-todo-tab" data-toggle="pill" href="#pills-todo" role="tab" aria-controls="pills-todo" aria-selected="false">Remove</a>
+    <a class="nav-link" id="pills-remove-tab" data-toggle="pill" href="#pills-remove" role="tab" aria-controls="pills-remove" aria-selected="false">Remove</a>
   </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-    
-
-
-
-
-
-
-  <form>
+  <div class="tab-pane fade show active" id="pills-browse" role="tabpanel" aria-labelledby="pills-browse-tab">
+  <form method="GET">
   <div class="form-group row">
     <h5 >Browse by one or more criteria below</h5>
   </div>
+  
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Book title</label>
+    <label for="book-title1" class="col-sm-2 col-form-label">Book title</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="inputEmail3">
+      <input type="text" class="form-control input-field" id="book-title1">
     </div>
   </div>
 
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Book Author</label>
+    <label for="book-author1" class="col-sm-2 col-form-label">Book Author</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control input-field" id="inputEmail3">
+      <input type="number" class="form-control input-field" id="book-author1">
     </div>
   </div>
 
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Book ID</label>
+    <label for="bookid1" class="col-sm-2 col-form-label">Book ID</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="inputEmail3">
+      <select class="form-control input-field" id="bookid1">
+        <option selected>Choose...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
     </div>
   </div>
-  
-  
+
   <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">ISBN Number</label>
+    <label for="ISBN-number1" class="col-sm-2 col-form-label">ISBN Number</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control input-field" id="inputPassword3">
+      <input type="number" class="form-control input-field" id="ISBN-number1">
     </div>
   </div>
   <fieldset class="form-group">
@@ -77,8 +79,8 @@
       <legend class="col-form-label col-sm-2 pt-0">SEND HTTP Request</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-          <label class="form-check-label" for="gridRadios1">
+          <input class="form-check-input" type="radio" name="gridRadios" id="form-check-input0" value="option1" checked>
+          <label class="form-check-label" for="form-check-input0">
             GET command
           </label>
         </div>
@@ -89,8 +91,8 @@
     <div class="col-sm-2"></div>
     <div class="col-sm-10">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck1">
-        <label class="form-check-label" for="gridCheck1">
+        <input class="form-check-input" type="checkbox" id="form-check-input1">
+        <label class="form-check-label" for="form-check-input1">
           Browse entire Library
         </label>
       </div>
@@ -102,48 +104,37 @@
     </div>
   </div>
 </form>
-
-
-
-
-
-
-
-
-
-    
-
   </div>
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-    
-   
-  <form>
+
+
+  <div class="tab-pane fade" id="pills-new_record" role="tabpanel" aria-labelledby="pills-new_record-tab">
+  <form method="POST">
   <div class="form-group row">
     <h5>Fill the details below to add a book</h5>
   </div>
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Book title</label>
+    <label for="book-title2" class="col-sm-2 col-form-label">Book title</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="inputEmail3">
+      <input type="text" class="form-control input-field" id="book-title2">
     </div>
   </div>
 
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Book Author</label>
+    <label for="book-author2" class="col-sm-2 col-form-label">Book Author</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="inputEmail3">
+      <input type="text" class="form-control input-field" id="book-author2">
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Book ID</label>
+    <label for="bookid2" class="col-sm-2 col-form-label">Book ID</label>
     <div class="col-sm-10">
-      <input type="text" placeholder="Auto-generated" disabled class="form-control input-field" id="inputEmail3">
+      <input type="text" placeholder="Auto-generated" disabled class="form-control input-field" id="bookid2">
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">ISBN Number</label>
+    <label for="ISBN-number2" class="col-sm-2 col-form-label">ISBN Number</label>
     <div class="col-sm-10">
-      <input placeholder="Auto-generated" disabled type="text" class="form-control input-field" id="inputEmail3">
+      <input placeholder="Auto-generated" disabled type="text" class="form-control input-field" id="ISBN-number2">
     </div>
   </div>
   <fieldset class="form-group">
@@ -151,8 +142,8 @@
       <legend class="col-form-label col-sm-2 pt-0">SEND HTTP Request</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" checked>
-          <label class="form-check-label" for="gridRadios2">
+          <input class="form-check-input" type="radio" name="gridRadios" id="form-check-input2" value="option2" checked>
+          <label class="form-check-label" for="form-check-input2">
             POST command
           </label>
         </div>
@@ -160,44 +151,38 @@
     </div>
   </fieldset>
   <div class="form-group row">
-    <div class="col-sm-2">Checkbox</div>
     <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck1">
-        <label class="form-check-label" for="gridCheck1">
-          Example checkbox
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-10">
-      <button type="submit" class="btn btn-secondary">Sign in</button>
+      <button type="submit" class="btn btn-secondary">Create</button>
     </div>
   </div>
 </form>
-
-
-
-
   </div>
-  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-    
 
-  <form>
+
+  <div class="tab-pane fade" id="pills-edit" role="tabpanel" aria-labelledby="pills-edit-tab">
+  <form method="PUT">
   <div class="form-group row">
     <h5>Select the ID of a book below to edit it's details</h5>
   </div>
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Select the Book to edit (ID)</label>
+    <label for="select-book-id3" class="col-sm-2 col-form-label">Select the Book to edit (ID)</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="inputEmail3">
+      <select class="form-control input-field" id="select-book-id3">
+        <option selected>Choose...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Book Title</label>
+    <label for="book-title3" class="col-sm-2 col-form-label">Book Title</label>
     <div class="col-sm-10">
-      <input type="text" placeholder="Auto-generated" class="form-control input-field" id="inputPassword3">
+      <input type="text" placeholder="Auto-generated" class="form-control input-field" id="book-title3">
     </div>
   </div>
   <fieldset class="form-group">
@@ -205,8 +190,8 @@
       <legend class="col-form-label col-sm-2 pt-0">SEND HTTP Request</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"  checked>
-          <label class="form-check-label" for="gridRadios2">
+          <input class="form-check-input" type="radio" name="gridRadios" id="form-check-input3" value="option2"  checked>
+          <label class="form-check-label" for="form-check-input3">
             PUT command
           </label>
         </div>
@@ -214,42 +199,41 @@
     </div>
   </fieldset>
   <div class="form-group row">
-    <div class="col-sm-2">Checkbox</div>
     <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck1">
-        <label class="form-check-label" for="gridCheck1">
-          Example checkbox
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-10">
-      <button type="submit" class="btn btn-secondary">Sign in</button>
+      <button type="submit" class="btn btn-secondary">Update</button>
     </div>
   </div>
 </form>
-
-
   </div>
-  <div class="tab-pane fade" id="pills-todo" role="tabpanel" aria-labelledby="pills-todo-tab">
-    
 
-  <form>
+
+
+  <div class="tab-pane fade" id="pills-remove" role="tabpanel" aria-labelledby="pills-remove-tab">
+  <form method="DELETE">
   <div class="form-group row">
     <h5 >If a book isn't what you want it to be, delete it!</h5>
   </div>
+  
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Select book to delete (ID)</label>
+    <label for="select-book-id4" class="col-sm-2 col-form-label">Select book to delete (ID)</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="inputEmail3">
+      <select class="form-control input-field" id="select-book-id4">
+        <option selected>Choose...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
     </div>
   </div>
+
   <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Book title</label>
+    <label for="book-title4" class="col-sm-2 col-form-label">Book title</label>
     <div class="col-sm-10">
-      <input type="text" disabled placeholder="will be auto-generated" class="form-control input-field" id="inputPassword3">
+      <input type="text" disabled placeholder="will be auto-generated" class="form-control input-field" id="book-title4">
     </div>
   </div>
   <fieldset class="form-group">
@@ -257,8 +241,8 @@
       <legend class="col-form-label col-sm-2 pt-0">SEND HTTP Request</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"  checked>
-          <label class="form-check-label" for="gridRadios2">
+          <input class="form-check-input" type="radio" name="gridRadios" id="form-check-input4" value="option2"  checked>
+          <label class="form-check-label" for="form-check-input4">
             DELETE command
           </label>
         </div>
@@ -271,9 +255,9 @@
     </div>
   </div>
 </form>
-
-
   </div>
+
+
 </div>
   </div>
 </body>
