@@ -33,7 +33,7 @@
 </ul>
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-browse" role="tabpanel" aria-labelledby="pills-browse-tab">
-  <form method="GET">
+  <form method="GET" data-method="GET">
   <div class="form-group row">
     <h5 >Browse by one or more criteria below</h5>
   </div>
@@ -108,7 +108,7 @@
 
 
   <div class="tab-pane fade" id="pills-new_record" role="tabpanel" aria-labelledby="pills-new_record-tab">
-  <form method="POST">
+  <form method="POST" data-method="POST">
   <div class="form-group row">
     <h5>Fill the details below to add a book</h5>
   </div>
@@ -160,7 +160,7 @@
 
 
   <div class="tab-pane fade" id="pills-edit" role="tabpanel" aria-labelledby="pills-edit-tab">
-  <form method="PUT">
+  <form method="put" data-method="PUT">
   <div class="form-group row">
     <h5>Select the ID of a book below to edit it's details</h5>
   </div>
@@ -209,7 +209,7 @@
 
 
   <div class="tab-pane fade" id="pills-remove" role="tabpanel" aria-labelledby="pills-remove-tab">
-  <form method="DELETE">
+  <form method="delete" data-method="DELETE">
   <div class="form-group row">
     <h5 >If a book isn't what you want it to be, delete it!</h5>
   </div>
@@ -260,5 +260,8 @@
 
 </div>
   </div>
+  <section>
+    <div class="show-room"></div>
+  </section>
 </body>
 </html>

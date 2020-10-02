@@ -8,6 +8,8 @@
               this.disabled = !this.disabled;
             });
           }
+
+          $(".show-room").text(this.method.toUpperCase());
             
          });
        }
