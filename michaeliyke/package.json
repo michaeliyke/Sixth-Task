@@ -1,0 +1,25 @@
+{
+  "name": "book_directory_rest_api",
+  "version": "1.0.0",
+  "description": "Book Directory REST API",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeliyke/Sixth-Task.git"
+  },
+  "author": "michaeliyke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaeliyke/Sixth-Task/issues"
+  },
+  "homepage": "https://github.com/michaeliyke/Sixth-Task#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "morgan": "^1.10.0"
+  }
+}
