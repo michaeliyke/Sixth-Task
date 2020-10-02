@@ -5,6 +5,10 @@
 
         const ajaxRequest = new XMLHttpRequest();
 
+        ["#pills-new_record"].forEach((selector) =>{
+          a(selector)
+        });
+
 
          $(sapi.forms).change(function(event) {
            if(event.target.classList.contains("form-check-input")) {
@@ -17,10 +21,9 @@
               console.log(ajaxRequest.responseText)
             if (ajaxRequest.status == 200) {
               $(".show-room").text(ajaxRequest.responseText);
-
             }
           };
-          ajaxRequest.open("GET", "/");
+          ajaxRequest.open("GET", "/books");
           ajaxRequest.send();
             // const method = this.dataset.method.toUpperCase();
             
