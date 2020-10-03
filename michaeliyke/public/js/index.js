@@ -7,6 +7,7 @@
         let endPoint = "/books"
         let form = null;
         let response = {};
+        let generateOptions = true;
 
         ajaxRequest.onreadystatechange = function(event) {
             if (ajaxRequest.status == 200) {
@@ -65,6 +66,16 @@
               console.log(ajaxRequest.responseText)
             if (ajaxRequest.status == 200) {
               response = JSON.parse(ajaxRequest.responseText);
+
+              if (generateOptions) {
+                generateOptions = false;
+                let blob = `<option selected default>Choose...</option>`;
+              for (let i = 1; i <= response.id; i++) {
+                blob = blob.concat(`<option value="${i}">${i}</option>`);
+              }
+              $("select").html(blob);
+              }
+
               $(".input-field", form).each((index, node) =>{
                 if (node.dataset.field in response) {
                   node.value = response[node.dataset.field];
