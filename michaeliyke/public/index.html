@@ -33,23 +33,9 @@
 </ul>
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-browse" role="tabpanel" aria-labelledby="pills-browse-tab">
-  <form method="GET" data-method="GET">
+  <form method="POST" data-method="GET">
   <div class="form-group row">
     <h5 >Browse by one or more criteria below</h5>
-  </div>
-  
-  <div class="form-group row">
-    <label for="book-title1" class="col-sm-2 col-form-label">Book title</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="book-title1">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="book-author1" class="col-sm-2 col-form-label">Book Author</label>
-    <div class="col-sm-10">
-      <input type="number" class="form-control input-field" id="book-author1">
-    </div>
   </div>
 
   <div class="form-group row">
@@ -67,11 +53,26 @@
       </select>
     </div>
   </div>
+  
+  <div class="form-group row">
+    <label for="book-title1" class="col-sm-2 col-form-label">Book title</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control input-field" id="book-title1">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="book-author1" class="col-sm-2 col-form-label">Book Author</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control input-field" id="book-author1">
+    </div>
+  </div>
+
 
   <div class="form-group row">
     <label for="ISBN-number1" class="col-sm-2 col-form-label">ISBN Number</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control input-field" id="ISBN-number1">
+      <input type="number" class="form-control input-field ISBN" id="ISBN-number1">
     </div>
   </div>
   <fieldset class="form-group">
@@ -134,7 +135,7 @@
   <div class="form-group row">
     <label for="ISBN-number2" class="col-sm-2 col-form-label">ISBN Number</label>
     <div class="col-sm-10">
-      <input placeholder="Auto-generated" disabled type="text" class="form-control input-field" id="ISBN-number2">
+      <input placeholder="Auto-generated" disabled type="text" class="form-control input-field ISBN" id="ISBN-number2">
     </div>
   </div>
   <fieldset class="form-group">
@@ -159,11 +160,13 @@
   </div>
 
 
+  
   <div class="tab-pane fade" id="pills-edit" role="tabpanel" aria-labelledby="pills-edit-tab">
   <form method="put" data-method="PUT">
   <div class="form-group row">
     <h5>Select the ID of a book below to edit it's details</h5>
   </div>
+
   <div class="form-group row">
     <label for="select-book-id3" class="col-sm-2 col-form-label">Select the Book to edit (ID)</label>
     <div class="col-sm-10">
@@ -179,12 +182,30 @@
       </select>
     </div>
   </div>
-  <div class="form-group row">
-    <label for="book-title3" class="col-sm-2 col-form-label">Book Title</label>
+
+   <div class="form-group row">
+    <label for="book-title3" class="col-sm-2 col-form-label">Book title</label>
     <div class="col-sm-10">
-      <input type="text" placeholder="Auto-generated" class="form-control input-field" id="book-title3">
+      <input type="text" class="form-control input-field" id="book-title3">
     </div>
   </div>
+
+  <div class="form-group row">
+    <label for="book-author3" class="col-sm-2 col-form-label">Book Author</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control input-field" id="book-author3">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="ISBN-number3" class="col-sm-2 col-form-label">ISBN Number</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control input-field ISBN" id="ISBN-number3">
+    </div>
+  </div>
+
+  
   <fieldset class="form-group">
     <div class="row">
       <legend class="col-form-label col-sm-2 pt-0">SEND HTTP Request</legend>
@@ -209,7 +230,7 @@
 
 
   <div class="tab-pane fade" id="pills-remove" role="tabpanel" aria-labelledby="pills-remove-tab">
-  <form method="delete" data-method="DELETE">
+  <form method="POST" data-method="DELETE">
   <div class="form-group row">
     <h5 >If a book isn't what you want it to be, delete it!</h5>
   </div>

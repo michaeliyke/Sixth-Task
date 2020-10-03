@@ -5,9 +5,13 @@
 
         const ajaxRequest = new XMLHttpRequest();
 
-        ["#pills-new_record"].forEach((selector) =>{
-          a(selector)
-        });
+        ajaxRequest.onreadystatechange = function(event) {
+            if (ajaxRequest.status == 200) {
+              console.log(ajaxRequest.responseText);
+            }
+          };
+          ajaxRequest.open("GET", "/generate");
+          ajaxRequest.send();
 
 
          $(sapi.forms).change(function(event) {
