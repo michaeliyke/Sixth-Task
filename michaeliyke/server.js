@@ -15,16 +15,51 @@ const fs = require("fs");
 let books = null;
 
 const app = express();
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
+function writeBookFile() {
+  fs.writeFile(`${__dirname}/public/assets/books.json`,  "UTF8", books, (error, data) =>{
+    if (error) {
+      throw new Error(error);
+    }
+    console.log(data);
+  });
+}
+
+function updateBook(bookItem) {
+  const book = getBookById(bookItem.id);
+  book.author = bookItem.author;
+  book["book-title"] = bookItem["book-title"];
+  book.ISBN = bookItem.ISBN;
+  writeBookFile();
+}
+
+function createNewBook(bookItem) {
+  books.push(bookItem);
+  writeBookFile();
+}
+
+function deleteBook(id) {
+  const bookItem = getBookById(id);
+  let index = 0;
+  for(let book in books) {
+    if (book.id = bookItem.id) {
+      books.splice(index, 1, bookItem);
+      break;
+    }
+    index += 1;
+  }
+
+  writeBookFile();
+}
 function getLastId() {
   return books.length;
 }
 
-function getById(id) {
+function getBookById(id) {
   let bookItem = {};
   for(book of books) {
     if(book.id == id) {
@@ -35,7 +70,7 @@ function getById(id) {
   return bookItem;
 }
 
-function getByAuthor(author) {
+function getBookByAuthor(author) {
   let bookItem = {};
   for(book of books) {
     if(book.author == author) {
@@ -46,7 +81,7 @@ function getByAuthor(author) {
   return bookItem;
 }
 
-function getByISBN(ISBN) {
+function getBookByISBN(ISBN) {
   let bookItem = {};
   for(book of books) {
     if(book.ISBN == ISBN) {
@@ -78,6 +113,11 @@ app.get("/books", (request, response, next) =>{
   response.end();
 });
 
+// app.post("/books", (request, response, next) =>{
+//   response.send(books);
+//   response.end();
+// });
+
 app.get("/generate", (request, response, next) =>{
   fs.readFile(`${__dirname}/public/assets/books.json`, (error, data) =>{
     if (error) {
@@ -94,8 +134,13 @@ app.get("/generate", (request, response, next) =>{
     cache_.set("ISBN", Math.floor(Math.random() * 1000000000));
     cache_.set("status", 0);
   }
+  response.send(JSON.stringify(
+    {id: cache_.get("id"), ISBN: cache_.get("ISBN")}
+    ));
+  response.end();
 });
 });
+
 
 app.get("/books/id", (request, response, next) =>{
   response.send(books);
@@ -113,17 +158,17 @@ app.get("/books/ISBN", (request, response, next) =>{
 });
 
 app.get("/books/id/:id", (request, response, next) =>{
-  response.send(getById(request.params.id));
+  response.send(getBookById(request.params.id));
   response.end();
 });
 
 app.get("/books/id/:author", (request, response, next) =>{
-  response.send(getByAuthor(request.params.author));
+  response.send(getBookByAuthor(request.params.author));
   response.end();
 });
 
 app.get("/books/id/:ISBN", (request, response, next) =>{
-  response.send(getByISBN(request.params.ISBN));
+  response.send(getBookByISBN(request.params.ISBN));
   response.end();
 });
 

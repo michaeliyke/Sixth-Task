@@ -41,7 +41,7 @@
   <div class="form-group row">
     <label for="bookid1" class="col-sm-2 col-form-label">Book ID</label>
     <div class="col-sm-10">
-      <select class="form-control input-field" id="bookid1">
+      <select class="form-control input-field" data-field="id" id="bookid1">
         <option selected>Choose...</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -57,14 +57,14 @@
   <div class="form-group row">
     <label for="book-title1" class="col-sm-2 col-form-label">Book title</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="book-title1">
+      <input class="form-control input-field" data-field="book-title" id="book-title1">
     </div>
   </div>
 
   <div class="form-group row">
     <label for="book-author1" class="col-sm-2 col-form-label">Book Author</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control input-field" id="book-author1">
+      <input class="form-control input-field" data-field="author" id="book-author1">
     </div>
   </div>
 
@@ -72,7 +72,7 @@
   <div class="form-group row">
     <label for="ISBN-number1" class="col-sm-2 col-form-label">ISBN Number</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control input-field ISBN" id="ISBN-number1">
+      <input type="number" class="form-control input-field ISBN" data-field="ISBN" id="ISBN-number1">
     </div>
   </div>
   <fieldset class="form-group">
@@ -116,26 +116,26 @@
   <div class="form-group row">
     <label for="book-title2" class="col-sm-2 col-form-label">Book title</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="book-title2">
+      <input class="form-control input-field" data-field="book-title" id="book-title2">
     </div>
   </div>
 
   <div class="form-group row">
     <label for="book-author2" class="col-sm-2 col-form-label">Book Author</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="book-author2">
+      <input class="form-control input-field" data-field="author" id="book-author2">
     </div>
   </div>
   <div class="form-group row">
     <label for="bookid2" class="col-sm-2 col-form-label">Book ID</label>
     <div class="col-sm-10">
-      <input type="text" placeholder="Auto-generated" disabled class="form-control input-field id" id="bookid2">
+      <input placeholder="Auto-generated" disabled class="form-control input-field id" data-field="id" id="bookid2">
     </div>
   </div>
   <div class="form-group row">
     <label for="ISBN-number2" class="col-sm-2 col-form-label">ISBN Number</label>
     <div class="col-sm-10">
-      <input placeholder="Auto-generated" disabled type="text" class="form-control input-field ISBN" id="ISBN-number2">
+      <input placeholder="Auto-generated" disabled class="form-control input-field ISBN" data-field="ISBN" id="ISBN-number2">
     </div>
   </div>
   <fieldset class="form-group">
@@ -170,7 +170,7 @@
   <div class="form-group row">
     <label for="select-book-id3" class="col-sm-2 col-form-label">Select the Book to edit (ID)</label>
     <div class="col-sm-10">
-      <select class="form-control input-field" id="select-book-id3">
+      <select class="form-control input-field" data-field="id" id="select-book-id3">
         <option selected>Choose...</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -186,14 +186,14 @@
    <div class="form-group row">
     <label for="book-title3" class="col-sm-2 col-form-label">Book title</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control input-field" id="book-title3">
+      <input class="form-control input-field" data-field="book-title" id="book-title3">
     </div>
   </div>
 
   <div class="form-group row">
     <label for="book-author3" class="col-sm-2 col-form-label">Book Author</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control input-field" id="book-author3">
+      <input class="form-control input-field" data-field="author" id="book-author3">
     </div>
   </div>
 
@@ -201,7 +201,7 @@
   <div class="form-group row">
     <label for="ISBN-number3" class="col-sm-2 col-form-label">ISBN Number</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control input-field ISBN" id="ISBN-number3">
+      <input type="number" class="form-control input-field ISBN" data-field="ISBN" id="ISBN-number3">
     </div>
   </div>
 
@@ -238,7 +238,7 @@
   <div class="form-group row">
     <label for="select-book-id4" class="col-sm-2 col-form-label">Select book to delete (ID)</label>
     <div class="col-sm-10">
-      <select class="form-control input-field" id="select-book-id4">
+      <select class="form-control input-field" data-field="id" id="select-book-id4">
         <option selected>Choose...</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -254,7 +254,7 @@
   <div class="form-group row">
     <label for="book-title4" class="col-sm-2 col-form-label">Book title</label>
     <div class="col-sm-10">
-      <input type="text" disabled placeholder="will be auto-generated" class="form-control input-field" id="book-title4">
+      <input disabled placeholder="will be auto-generated" class="form-control input-field" data-field="book-title" id="book-title4">
     </div>
   </div>
   <fieldset class="form-group">
