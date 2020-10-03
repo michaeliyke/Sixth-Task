@@ -20,6 +20,43 @@ app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
+function getLastId() {
+  return books.length;
+}
+
+function getById(id) {
+  let bookItem = {};
+  for(book of books) {
+    if(book.id == id) {
+      bookItem = book;
+      break;
+    }
+  }
+  return bookItem;
+}
+
+function getByAuthor(author) {
+  let bookItem = {};
+  for(book of books) {
+    if(book.author == author) {
+      bookItem = book;
+      break;
+    }
+  }
+  return bookItem;
+}
+
+function getByISBN(ISBN) {
+  let bookItem = {};
+  for(book of books) {
+    if(book.ISBN == ISBN) {
+      bookItem = book;
+      break;
+    }
+  }
+  return bookItem;
+}
+
 app.all(/\/books[\/\w+]*/, (request, response, next) =>{
 
   fs.readFile(`${__dirname}/public/assets/books.json`, (error, data) =>{
@@ -42,20 +79,22 @@ app.get("/books", (request, response, next) =>{
 });
 
 app.get("/generate", (request, response, next) =>{
+  fs.readFile(`${__dirname}/public/assets/books.json`, (error, data) =>{
+    if (error) {
+      throw new Error(`Internal server error. \n ${error} `);
+    }
+    books = JSON.parse(data);
   if (typeof cache_.get("id") !== "number" || cache_.get("status") == 1) {
     /*Status: 0 - unused, status: 1 - last used*/
     // The current numbers have been utilized. Get another
     //OR It's the first request, so create the numbers
     console.log("This is here");
     let id = cache_.get("id");
-    cache_.set("id", typeof id === "undefined" ? 1: id++);
+    cache_.set("id", typeof id === "undefined" ? getLastId(): id++);
     cache_.set("ISBN", Math.floor(Math.random() * 1000000000));
     cache_.set("status", 0);
   }
-  response.send(JSON.stringify(
-    {id: cache_.get("id"), ISBN: cache_.get("ISBN")}
-    ));
-  response.end();
+});
 });
 
 app.get("/books/id", (request, response, next) =>{
@@ -74,20 +113,17 @@ app.get("/books/ISBN", (request, response, next) =>{
 });
 
 app.get("/books/id/:id", (request, response, next) =>{
-  const book = request.params.id;
-  response.send(books);
+  response.send(getById(request.params.id));
   response.end();
 });
 
 app.get("/books/id/:author", (request, response, next) =>{
-  const book = request.params.author;
-  response.send(books);
+  response.send(getByAuthor(request.params.author));
   response.end();
 });
 
 app.get("/books/id/:ISBN", (request, response, next) =>{
-  const book = request.params.ISBN;
-  response.send(books);
+  response.send(getByISBN(request.params.ISBN));
   response.end();
 });
 
