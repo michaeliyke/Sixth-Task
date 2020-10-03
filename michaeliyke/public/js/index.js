@@ -7,11 +7,21 @@
 
         ajaxRequest.onreadystatechange = function(event) {
             if (ajaxRequest.status == 200) {
-              console.log(ajaxRequest.responseText);
+              const obj = JSON.parse(ajaxRequest.responseText);
+              $("[disabled]", sapi.forms[1]).each(function(index, el) {
+              if (el.classList.contains("id")) {
+                el.value = `Auto-generated: ${obj.id}`;
+              } else if(el.classList.contains("ISBN")) {
+                el.value = `Auto-generated: ${obj.ISBN}`;
+            }
+          });
+              console.log(obj);
             }
           };
           ajaxRequest.open("GET", "/generate");
           ajaxRequest.send();
+
+          
 
 
          $(sapi.forms).change(function(event) {

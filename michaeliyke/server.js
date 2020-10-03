@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
-app.all("/books", (request, response, next) =>{
+app.all(/\/books[\/\w+]*/, (request, response, next) =>{
 
   fs.readFile(`${__dirname}/public/assets/books.json`, (error, data) =>{
     if (error) {
@@ -48,7 +48,7 @@ app.get("/generate", (request, response, next) =>{
     //OR It's the first request, so create the numbers
     console.log("This is here");
     let id = cache_.get("id");
-    cache_.set("id", typeof id === "undefined" ? 0: id++);
+    cache_.set("id", typeof id === "undefined" ? 1: id++);
     cache_.set("ISBN", Math.floor(Math.random() * 1000000000));
     cache_.set("status", 0);
   }
@@ -58,7 +58,35 @@ app.get("/generate", (request, response, next) =>{
   response.end();
 });
 
-app.get("/books/:id", (request, response, next) =>{
+app.get("/books/id", (request, response, next) =>{
+  response.send(books);
+  response.end();
+});
+
+app.get("/books/author", (request, response, next) =>{
+  response.send(books);
+  response.end();
+});
+
+app.get("/books/ISBN", (request, response, next) =>{
+  response.send(books);
+  response.end();
+});
+
+app.get("/books/id/:id", (request, response, next) =>{
+  const book = request.params.id;
+  response.send(books);
+  response.end();
+});
+
+app.get("/books/id/:author", (request, response, next) =>{
+  const book = request.params.author;
+  response.send(books);
+  response.end();
+});
+
+app.get("/books/id/:ISBN", (request, response, next) =>{
+  const book = request.params.ISBN;
   response.send(books);
   response.end();
 });
