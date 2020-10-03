@@ -23,6 +23,10 @@
           });
           switch(method) {
             case "GET":
+              if ($("#form-check-input1", form)[0].checked) {
+                endPoint = "`/books";
+                break
+              }
               if (obj.id == +obj.id) {
                 endPoint = `/books/id/${obj.id}`;
               } else {
@@ -47,31 +51,23 @@
         }
 
         function pingServer(method, endPoint, obj) {
-          // a(endPoint)
-          console.log(endPoint);
-        }
-
-        ajaxRequest.onreadystatechange = function(event) {
-            if (ajaxRequest.status == 200) {
-              const obj = JSON.parse(ajaxRequest.responseText);
-              let blob = `<option selected>Choose...</option>`;
-              for (let i = 0; i < obj.id; i++) {
-                blob = blob.concat(`<option value="${i}">${i}</option>`);
-              }
-              $("select").each((index, select) =>{
-                a(select)
-                select.innerHTML = blob;
-              });
-
-              $("[disabled]", sapi.forms[1]).each(function(index, el) {
-              if (el.classList.contains("id")) {
-                // el.value = `Auto-generated: ${obj.id}`;
-              } else if(el.classList.contains("ISBN")) {
-                // el.value = `Auto-generated: ${obj.ISBN}`;
+          const request = new XMLHttpRequest();
+          request.addEventListener("load", (event) =>{
+            if (request.status >= 200 && request.status < 300) {
+              $(".show-room").text(request.responseText);
             }
           });
-            }
-          };
+          request.open(method, endPoint);
+          if (!obj) {
+            request.setRequestHeader("Content-Type", "application/json");
+          }
+          request.send(obj);
+          console.log(method);
+        }
+
+
+
+
           ajaxRequest.open("GET", "/generate");
           ajaxRequest.send();
 

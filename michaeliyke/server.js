@@ -15,8 +15,10 @@ const fs = require("fs");
 let books = null;
 
 const app = express();
-// app.use(morgan("dev"));
-app.use(bodyParser.json());
+app.use(morgan("dev"));
+// app.use(bodyParser.json());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static("public"));
 
@@ -113,10 +115,12 @@ app.get("/books", (request, response, next) =>{
   response.end();
 });
 
-// app.post("/books", (request, response, next) =>{
-//   response.send(books);
-//   response.end();
-// });
+app.post("/books", (request, response, next) =>{
+  console.log(request.body)
+  // const book = JSON.parse(request);
+  response.send(books);
+  response.end();
+});
 
 app.get("/generate", (request, response, next) =>{
   fs.readFile(`${__dirname}/public/assets/books.json`, (error, data) =>{
