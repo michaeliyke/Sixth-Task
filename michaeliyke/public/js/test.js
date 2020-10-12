@@ -3,6 +3,7 @@
        return function($){
         const a = alert;
 
+        const ajaxRequest = new XMLHttpRequest();
         let endPoint = "/books"
         let form = null;
         let response = {};
@@ -67,9 +68,13 @@
 
 
 
-  const ajaxRequest = new XMLHttpRequest();
 
-  $(sapi.forms).submit(onSubmit);
+          ajaxRequest.open("GET", "/generate");
+          ajaxRequest.send();
+
+          
+
+          $(sapi.forms).submit(onSubmit);
 
          $(sapi.forms).change(function(event) {
            const target = event.target;
@@ -96,30 +101,26 @@
          });
 
          ajaxRequest.onreadystatechange = function(event) {
-            if (this.readyState == 4) {
-              if (ajaxRequest.responseURL.indexOf("/generate") != -1) {
+            if (ajaxRequest.status == 200) {
               response = JSON.parse(ajaxRequest.responseText);
+
               if (generateOptions) {
                 generateOptions = false;
                 let blob = `<option selected>Choose...</option>`;
-                console.log(response)
-              for (let i = 1; i <= response[0].id; i++) {
+              for (let i = 1; i <= response.id; i++) {
                 blob = blob.concat(`<option value="${i}">${i}</option>`);
               }
               $("select").html(blob);
-              }}
+              }
 
               $(".input-field", form).each((index, node) =>{
                 if (node.dataset.field in response) {
                   node.value = response[node.dataset.field];
                 }
               });
-              // $(".show-room").text(ajaxRequest.responseText);
+              $(".show-room").text(ajaxRequest.responseText);
             }
           };
-
-    ajaxRequest.open("GET", "/generate");
-    ajaxRequest.send();
 
 
 
